@@ -1,0 +1,5 @@
+docker/active-directory/samba/**/*
+!docker/active-directory/samba/.gitkeep
+
+docker/oracle-database/oradata/**/*
+!docker/oracle-database/oradata/.gitkeep

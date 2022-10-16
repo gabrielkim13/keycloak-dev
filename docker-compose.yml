@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  active-directory:
+    container_name: dev-active-directory
+    build:
+      context: docker/active-directory
+      dockerfile: Dockerfile
+    hostname: tecban.com
+    ports:
+      - '389:389'
+      - '636:636'
+    privileged: true
+    volumes:
+      - ./docker/active-directory/samba:/var/lib/samba
+
+  keycloak:
+    container_name: dev-keycloak
+    build:
+      context: docker/keycloak
+      dockerfile: Dockerfile
+    command: start-dev
+    depends_on:
+      - active-directory
+      - oracle-database
+    environment:
+      - KC_DB=oracle
+      - KC_DB_URL=jdbc:oracle:thin:@//oracle-database:1521/ORCLPDB1
+      - KC_DB_USERNAME=KEYCLOAK
+      - KC_DB_PASSWORD=root
+      - KC_DB_SCHEMA=KEYCLOAK
+    ports:
+      - '8080:8080'
+
+  oracle-database:
+    container_name: dev-oracle-database
+    build:
+      context: docker/oracle-database
+      dockerfile: Dockerfile
+    ports:
+      - '1521:1521'
+    volumes:
+      - ./docker/oracle-database/oradata:/opt/oracle/oradata
