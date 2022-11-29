@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   active-directory:
-    container_name: dev-active-directory
+    container_name: keycloak-dev_active-directory
     build:
       context: docker/active-directory
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
       - ./docker/active-directory/samba:/var/lib/samba
 
   keycloak:
-    container_name: dev-keycloak
+    container_name: keycloak-dev_keycloak
     build:
       context: docker/keycloak
       dockerfile: Dockerfile
@@ -33,7 +33,7 @@ services:
       - '8080:8080'
 
   oracle-database:
-    container_name: dev-oracle-database
+    container_name: keycloak-dev_oracle-database
     build:
       context: docker/oracle-database
       dockerfile: Dockerfile

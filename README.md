@@ -1,6 +1,6 @@
-# Dev
+# Kecyloak development environment
 
-Containerized development environment, using [Docker](https://www.docker.com/), with:
+Containerized Keycloak development environment, using [Docker](https://www.docker.com/), with:
 
 - [Active Directory (Samba)](https://www.samba.org/samba/)
 - [Keycloak](https://www.keycloak.org/)
@@ -11,7 +11,7 @@ Containerized development environment, using [Docker](https://www.docker.com/), 
 To spin up the Docker containers for all services mentioned above, run:
 
 ```bash
-docker-compose -p dev up -d
+docker-compose -p keycloak-dev up -d
 ```
 
 ## Services
@@ -88,12 +88,12 @@ For more information regarding LDAP integration in Keycloak, read the following 
 
 ### Oracle Database
 
-| Parameter    | Value                |
-| :----------- | :------------------- |
-| Port         | 1521                 |
-| Service Name | ORCLPDB1             |
-| Username     | SYS AS SYSDBA ou DEV |
-| Password     | root                 |
+| Parameter    | Value                    |
+| :----------- | :----------------------- |
+| Port         | 1521                     |
+| Service Name | ORCLPDB1                 |
+| Username     | SYS AS SYSDBA / KEYCLOAK |
+| Password     | root                     |
 
 #### Recommended tools
 
