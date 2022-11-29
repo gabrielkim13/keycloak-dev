@@ -65,13 +65,13 @@ adding its CA to every container / host that interacts with it, include the foll
 
 ```
 
-#### Recommended tools
+#### [LDAP Admin](https://sourceforge.net/projects/ldapadmin/)
 
-- [LDAP Admin](https://sourceforge.net/projects/ldapadmin/)
+Create a new connection, using the following configurations:
+
+![LDAP Admin](.github/ldap-admin.png)
 
 ### Keycloak
-
-> In construction...
 
 | Parameter | Value                  |
 | :-------- | :--------------------- |
@@ -80,6 +80,12 @@ adding its CA to every container / host that interacts with it, include the foll
 | Password  | admin                  |
 
 #### LDAP integration
+
+Navigate to `User federation >> LDAP` and use the following configurations:
+
+![LDAP - Connection and authentication settings](.github/keycloak-ldap-connection.png)
+
+![LDAP - LDAP searching and updating](.github/keycloak-ldap-searching.png)
 
 For more information regarding LDAP integration in Keycloak, read the following resources:
 
