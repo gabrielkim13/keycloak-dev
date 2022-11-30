@@ -6,7 +6,7 @@ services:
     build:
       context: docker/active-directory
       dockerfile: Dockerfile
-    hostname: tecban.com
+    hostname: mycompany.com
     ports:
       - '389:389'
       - '636:636'

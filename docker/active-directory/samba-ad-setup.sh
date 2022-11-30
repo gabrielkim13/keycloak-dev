@@ -22,7 +22,7 @@ samba-tool domain provision\
  --use-rfc2307\
  --dns-backend=SAMBA_INTERNAL\
  --realm=`hostname`\
- --domain=DEV-AD\
+ --domain=MYCOMPANY\
  --adminpass=${SMB_ADMIN_PASSWORD}
 
 mv /etc/samba/smb.conf /var/lib/samba/private/smb.conf

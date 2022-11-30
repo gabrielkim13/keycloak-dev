@@ -18,15 +18,15 @@ docker-compose -p keycloak-dev up -d
 
 ### Active Directory
 
-> You can also use `DC=tecban,DC=com` as the Base DN, but beware that it will make overall usage of
+> You can also use `DC='mycompany',DC=com` as the Base DN, but beware that it will make overall usage of
 > LDAP Admin and AD syncs **a lot** slower.
 
-| Parameter   | Value                     |
-| :---------- | :------------------------ |
-| Port (LDAP) | 389                       |
-| Base        | CN=Users,DC=tecban,DC=com |
-| Username    | Administrator             |
-| Password    | Pa$$w0rd                  |
+| Parameter   | Value                        |
+| :---------- | :--------------------------- |
+| Port (LDAP) | 389                          |
+| Base        | CN=Users,DC=mycompany,DC=com |
+| Username    | Administrator                |
+| Password    | Pa$$w0rd                     |
 
 #### Transport security
 
@@ -46,8 +46,8 @@ adding its CA to every container / host that interacts with it, include the foll
 # Global parameters
 [global]
 	dns forwarder = 127.0.0.11
-	netbios name = TECBAN
-	realm = TECBAN.COM
+	netbios name = MYCOMPANY
+	realm = MYCOMPANY.COM
 	server role = active directory domain controller
 	workgroup = DEV-AD
 	idmap_ldb:use rfc2307 = yes
@@ -60,7 +60,7 @@ adding its CA to every container / host that interacts with it, include the foll
 	read only = No
 
 [netlogon]
-	path = /var/lib/samba/sysvol/tecban.com/scripts
+	path = /var/lib/samba/sysvol/mycompany.com/scripts
 	read only = No
 
 ```
